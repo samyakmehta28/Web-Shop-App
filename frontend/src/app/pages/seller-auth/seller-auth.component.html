@@ -1,0 +1,91 @@
+{{ sellerAuth | json }}
+
+<div class="seller-auth">
+  <h1>Seller Sign Up</h1>
+  <form
+    #sellerSignUpForm="ngForm"
+    (ngSubmit)="sellerSignUpFn(sellerSignUpForm)"
+    class="seller-auth-form"
+  >
+    <div class="form-group">
+      <input
+        required
+        class="form-control"
+        type="text"
+        name="name"
+        minlength="3"
+        maxlength="20"
+        placeholder="Enter your Name"
+        [(ngModel)]="sellerAuth.name"
+        #nameControl="ngModel"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="nameControl.errors?.['required'] && nameControl.dirty"
+      >
+        Name is required.
+      </div>
+      <div
+        class="alert alert-danger"
+        *ngIf="nameControl.errors?.['minlength'] && nameControl.dirty"
+      >
+        Name should have at least
+        {{ nameControl.errors?.['minlength'].requiredLength }} characters.
+      </div>
+    </div>
+    <div class="form-group">
+      <input
+        required
+        class="form-control"
+        type="text"
+        name="email"
+        placeholder="Enter your Email"
+        [(ngModel)]="sellerAuth.email"
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}"
+        #emailControl="ngModel"
+      />
+      <!--email control -->
+      <div
+        *ngIf="emailControl.errors?.['required'] && emailControl.dirty"
+        class="alert alert-danger"
+      >
+        Email is required.
+      </div>
+      <div
+        *ngIf="emailControl.errors?.['pattern'] && emailControl.dirty"
+        class="alert alert-danger"
+      >
+        Please enter a valid email address.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input
+        required
+        class="form-control"
+        type="text"
+        name="password"
+        minlength="6"
+        maxlength="12"
+        placeholder="Enter your Password"
+        [(ngModel)]="sellerAuth.password"
+        #passwordControl="ngModel"
+      />
+    </div>
+    <div
+      class="alert alert-danger"
+      *ngIf="passwordControl.errors?.['required'] && passwordControl.dirty"
+    >
+      password is required.
+    </div>
+    <div
+      class="alert alert-danger"
+      *ngIf="passwordControl.errors?.['minlength'] && passwordControl.dirty"
+    >
+      password should have at least
+      {{ passwordControl.errors?.['minlength'].requiredLength }} characters.
+    </div>
+
+    <button class="btn btn-success" type="submit">Sign Up</button>
+  </form>
+</div>

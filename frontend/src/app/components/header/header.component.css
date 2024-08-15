@@ -1,0 +1,36 @@
+.navbar {
+  background-color: rgb(5, 23, 29);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 20px;
+  padding-left: 20px;
+  color: white;
+}
+
+.navbar h1 {
+  font-size: 1.5rem;
+  flex: 1;
+}
+
+.nav-search {
+  display: flex;
+  flex: 3;
+}
+
+.navbar input {
+  width: 80%;
+}
+
+.navlinks {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.navlinks a {
+  color: white;
+  text-decoration: none;
+  margin-right: 7px;
+  margin-left: 7px;
+}
