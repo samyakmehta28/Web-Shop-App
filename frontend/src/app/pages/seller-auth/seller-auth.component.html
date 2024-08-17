@@ -1,6 +1,4 @@
-{{ sellerAuth | json }}
-
-<div class="seller-auth">
+<div class="seller-auth" *ngIf="!isLoading; else loading">
   <h1>Seller Sign Up</h1>
   <form
     #sellerSignUpForm="ngForm"
@@ -86,6 +84,15 @@
       {{ passwordControl.errors?.['minlength'].requiredLength }} characters.
     </div>
 
-    <button class="btn btn-success" type="submit">Sign Up</button>
+    <button
+      [disabled]="!sellerSignUpForm.valid"
+      class="btn btn-success"
+      type="submit"
+    >
+      Sign Up
+    </button>
   </form>
 </div>
+<ng-template #loading>
+  <h1>loading...</h1>
+</ng-template>
