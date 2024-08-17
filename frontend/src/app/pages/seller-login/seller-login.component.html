@@ -1,8 +1,8 @@
 <div class="seller-auth" *ngIf="!isLoading; else loading">
-  <h1>Seller Sign Up</h1>
+  <h1>Seller Login</h1>
   <form
-    #sellerSignUpForm="ngForm"
-    (ngSubmit)="sellerSignUpFn(sellerSignUpForm)"
+    #sellerLoginForm="ngForm"
+    (ngSubmit)="sellerLoginFn(sellerLoginForm)"
     class="seller-auth-form"
   >
     <div class="form-group">
@@ -10,35 +10,9 @@
         required
         class="form-control"
         type="text"
-        name="name"
-        minlength="3"
-        maxlength="20"
-        placeholder="Enter your Name"
-        [(ngModel)]="sellerAuth.name"
-        #nameControl="ngModel"
-      />
-      <div
-        class="alert alert-danger"
-        *ngIf="nameControl.errors?.['required'] && nameControl.dirty"
-      >
-        Name is required.
-      </div>
-      <div
-        class="alert alert-danger"
-        *ngIf="nameControl.errors?.['minlength'] && nameControl.dirty"
-      >
-        Name should have at least
-        {{ nameControl.errors?.['minlength'].requiredLength }} characters.
-      </div>
-    </div>
-    <div class="form-group">
-      <input
-        required
-        class="form-control"
-        type="text"
         name="email"
         placeholder="Enter your Email"
-        [(ngModel)]="sellerAuth.email"
+        [(ngModel)]="sellerLogin.email"
         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}"
         #emailControl="ngModel"
       />
@@ -66,7 +40,7 @@
         minlength="6"
         maxlength="12"
         placeholder="Enter your Password"
-        [(ngModel)]="sellerAuth.password"
+        [(ngModel)]="sellerLogin.password"
         #passwordControl="ngModel"
       />
     </div>
@@ -85,13 +59,16 @@
     </div>
 
     <button
-      [disabled]="!sellerSignUpForm.valid"
+      [disabled]="!sellerLoginForm.valid"
       class="btn btn-success"
       type="submit"
     >
-      Sign Up
+      Login
     </button>
   </form>
+  <div class="switch-form">
+    <p>Do not have an account? <a routerLink="/seller-signup">Sign Up</a></p>
+  </div>
 </div>
 <ng-template #loading>
   <h1>loading...</h1>

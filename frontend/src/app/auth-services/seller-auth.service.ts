@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
-import { SellerUser, SellerAuth } from '../interfaces/seller.interface';
+import {
+  SellerUser,
+  SellerSignup,
+  SellerLogin,
+} from '../interfaces/seller.interface';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { BehaviorSubject, Observable, catchError, throwError } from 'rxjs';
 
@@ -15,9 +19,11 @@ export class SellerAuthService {
     email: '',
   });
 
-  sellerUserSignUp(sellerAuth: SellerAuth): Observable<HttpResponse<any>> {
+  sellerUserSignUp(sellerSignup: SellerSignup): Observable<HttpResponse<any>> {
     return this.http
-      .post('http://localhost:3000/seller', sellerAuth, { observe: 'response' })
+      .post('http://localhost:3000/seller', sellerSignup, {
+        observe: 'response',
+      })
       .pipe(
         catchError((error) => {
           return throwError(
@@ -27,8 +33,23 @@ export class SellerAuthService {
       );
   }
 
+  sellerUserLogin(sellerLogin: SellerLogin): Observable<HttpResponse<any>> {
+    return this.http
+      .get(`http://localhost:3000/seller?email=${sellerLogin.email}`, {
+        observe: 'response',
+      })
+      .pipe(
+        catchError((error) => {
+          return throwError(
+            () => new Error('Unable to Login. Please try again later.')
+          );
+        })
+      );
+  }
+
   reloadSeller() {
     if (localStorage.getItem('seller')) {
+      // console.log(localStorage.getItem('seller'));
       this.sellerIsLoggedIn.next(true);
       this.sellerUser.next(
         JSON.parse(localStorage.getItem('seller') as string)
