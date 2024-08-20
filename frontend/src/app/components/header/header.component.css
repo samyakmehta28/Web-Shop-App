@@ -13,6 +13,11 @@
   flex: 1;
 }
 
+.navbar h1 a {
+  color: white;
+  text-decoration: none;
+}
+
 .nav-search {
   display: flex;
   flex: 3;
@@ -25,7 +30,8 @@
 .navlinks {
   flex: 1;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+  margin-right: 10px;
 }
 
 .navlinks a {

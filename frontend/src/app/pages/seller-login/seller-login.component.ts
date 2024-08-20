@@ -55,7 +55,11 @@ export class SellerLoginComponent {
       )
       .subscribe({
         next: (response: HttpResponse<any>) => {
-          if (response.status === 200) {
+          if (
+            response.status === 200 &&
+            response.body?.[0]?.password &&
+            response.body?.[0]?.password === this.sellerLogin.password
+          ) {
             const data = {
               name: response.body?.[0]?.name,
               email: response.body?.[0]?.email,

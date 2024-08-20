@@ -1,13 +1,26 @@
-<nav class="navbar">
-  <h1>Web-Shop</h1>
-  <div class="nav-search">
-    <input type="text" placeholder="search" />
-    <button type="button" class="btn btn-light">Search</button>
-  </div>
-  <div class="navlinks">
-    <a routerLink="seller-login">Seller</a>
-    <a routerLink="">Home</a>
-    <a href="#">Login</a>
-    <a href="#">Cart</a>
-  </div>
-</nav>
+<div [ngSwitch]="headerType">
+  <nav *ngSwitchCase="'default'" class="navbar">
+    <h1><a routerLink="">Web-Shop</a></h1>
+    <div class="nav-search">
+      <input type="text" placeholder="search" />
+      <button type="button" class="btn btn-light">Search</button>
+    </div>
+    <div class="navlinks">
+      <a routerLink="seller-login">Seller</a>
+      <a routerLink="">Home</a>
+      <a href="#">Login</a>
+      <a href="#">Cart</a>
+    </div>
+  </nav>
+
+  <nav *ngSwitchCase="'seller'" class="navbar">
+    <h1><a routerLink="">Web-Shop</a></h1>
+    <!-- <div class="nav-search"></div> -->
+    <div class="navlinks">
+      <a routerLink="#">Add</a>
+      <a routerLink="">List</a>
+      <a href="#">Logout</a>
+      <a href="#">{{ sellerName }}</a>
+    </div>
+  </nav>
+</div>
