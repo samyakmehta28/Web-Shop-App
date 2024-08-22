@@ -67,7 +67,10 @@
     </button>
   </form>
   <div class="switch-form">
-    <p>Do not have an account? <a routerLink="/seller-signup">Sign Up</a></p>
+    <p>
+      Do not have an account?
+      <a [routerLink]="['/seller', 'signup']">Sign Up</a>
+    </p>
   </div>
 </div>
 <ng-template #loading>

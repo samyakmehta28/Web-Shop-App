@@ -6,7 +6,7 @@
       <button type="button" class="btn btn-light">Search</button>
     </div>
     <div class="navlinks">
-      <a routerLink="seller-login">Seller</a>
+      <a [routerLink]="['seller/login']">Seller</a>
       <a routerLink="">Home</a>
       <a href="#">Login</a>
       <a href="#">Cart</a>
@@ -17,10 +17,10 @@
     <h1><a routerLink="">Web-Shop</a></h1>
     <!-- <div class="nav-search"></div> -->
     <div class="navlinks">
-      <a routerLink="#">Add</a>
-      <a routerLink="">List</a>
-      <a href="#">Logout</a>
-      <a href="#">{{ sellerName }}</a>
+      <a [routerLink]="['seller', 'add-product']">Add</a>
+      <a [routerLink]="['seller', 'home']">List</a>
+      <a (click)="sellerLogout()">Logout</a>
+      <a [routerLink]="['seller', 'home']">{{ sellerName | titlecase }}</a>
     </div>
   </nav>
 </div>

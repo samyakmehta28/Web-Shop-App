@@ -1,22 +1,22 @@
-import { SellerAuthService } from '../../auth-services/seller-auth.service';
-import { Component } from '@angular/core';
-import { SellerLogin } from '../../interfaces/seller.interface';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { NgForm } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
+import { SellerAuthService } from '../../../auth-services/seller-auth.service';
 import { Router } from '@angular/router';
+import { SellerSignup } from '../../../interfaces/seller.interface';
 import { HttpResponse } from '@angular/common/http';
 import { finalize } from 'rxjs';
 import { RouterLink } from '@angular/router';
 @Component({
-  selector: 'app-seller-login',
+  selector: 'app-seller-signup',
   standalone: true,
   imports: [CommonModule, FormsModule, RouterLink],
-  templateUrl: './seller-login.component.html',
-  styleUrl: './seller-login.component.css',
+  templateUrl: './seller-signup.component.html',
+  styleUrl: './seller-signup.component.css',
 })
-export class SellerLoginComponent {
-  sellerLogin: SellerLogin = {
+export class SellerSignupComponent implements OnInit {
+  sellerSignup: SellerSignup = {
+    name: '',
     email: '',
     password: '',
   };
@@ -34,20 +34,21 @@ export class SellerLoginComponent {
     this.sellerAuthService.sellerIsLoggedIn.subscribe({
       next: (value) => {
         if (value) {
-          this.router.navigate(['/seller-home']);
+          this.router.navigate(['/seller', 'home']);
         }
       },
     });
     this.isLoading = false;
   }
 
-  sellerLoginFn(sellerLoginForm: NgForm) {
+  sellerSignUpFn(sellerSignUpForm: NgForm) {
     this.sellerAuthService
-      .sellerUserLogin(this.sellerLogin)
+      .sellerUserSignUp(this.sellerSignup)
       .pipe(
         finalize(() => {
           // This will always be executed after the observable completes
-          sellerLoginForm.resetForm({
+          sellerSignUpForm.resetForm({
+            name: '',
             email: '',
             password: '',
           });
@@ -55,19 +56,20 @@ export class SellerLoginComponent {
       )
       .subscribe({
         next: (response: HttpResponse<any>) => {
-          if (
-            response.status === 200 &&
-            response.body?.[0]?.password &&
-            response.body?.[0]?.password === this.sellerLogin.password
-          ) {
-            const data = {
-              name: response.body?.[0]?.name,
-              email: response.body?.[0]?.email,
-            };
+          if (response.status === 201) {
             this.sellerAuthService.sellerIsLoggedIn.next(true);
-            this.sellerAuthService.sellerUser.next(data);
-            localStorage.setItem('seller', JSON.stringify(data));
-            this.router.navigate(['/seller-home']);
+            this.sellerAuthService.sellerUser.next({
+              name: this.sellerSignup.name,
+              email: this.sellerSignup.email,
+            });
+            localStorage.setItem(
+              'seller',
+              JSON.stringify({
+                name: this.sellerSignup.name,
+                email: this.sellerSignup.email,
+              })
+            );
+            this.router.navigate(['/seller', 'home']);
           } else {
             alert('Something went wrong. Please try again');
           }

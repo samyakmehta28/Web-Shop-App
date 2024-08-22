@@ -37,4 +37,13 @@ export class HeaderComponent implements OnInit {
       this.sellerName = value.name.split(' ')[0];
     });
   }
+
+  sellerLogout() {
+    try {
+      this.sellerAuthService.sellerUserLogout();
+      this.router.navigate(['/']);
+    } catch (error) {
+      alert(error);
+    }
+  }
 }

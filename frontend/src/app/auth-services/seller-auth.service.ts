@@ -56,4 +56,14 @@ export class SellerAuthService {
       );
     }
   }
+
+  sellerUserLogout() {
+    if (!localStorage.getItem('seller')) {
+      return throwError(() => new Error('No user logged in'));
+    }
+    localStorage.removeItem('seller');
+    this.sellerIsLoggedIn.next(false);
+    this.sellerUser.next({ name: '', email: '' });
+    return { msg: 'Logout Successful' };
+  }
 }

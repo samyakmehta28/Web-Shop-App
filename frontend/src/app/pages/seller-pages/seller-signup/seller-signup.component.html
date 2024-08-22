@@ -93,7 +93,9 @@
     </button>
   </form>
   <div class="switch-form">
-    <p>Already have an account? <a routerLink="/seller-login">Login</a></p>
+    <p>
+      Already have an account? <a [routerLink]="['/seller', 'login']">Login</a>
+    </p>
   </div>
 </div>
 <ng-template #loading>
