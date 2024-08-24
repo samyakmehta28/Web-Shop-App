@@ -6,5 +6,25 @@
       "email": "samyakmehta28@gmail.com",
       "password": "samyak28"
     }
+  ],
+  "products": [
+    {
+      "id": "1870",
+      "name": "Samsung S24",
+      "price": 0,
+      "category": "Mobile",
+      "color": "black",
+      "description": "phone",
+      "image": "https://www.google.com/imgres?q=samsung%20s24&imgurl=https%3A%2F%2Ft-mobile.scene7.com%2Fis%2Fimage%2FTmusprod%2FSamsung-Galaxy-S24-Amber-Yellow-frontimage&imgrefurl=https%3A%2F%2Fwww.t-mobile.com%2Fcell-phone%2Fsamsung-galaxy-s24&docid=aqvo7_5Twyi-PM&tbnid=nL0NOQlRrd00CM&vet=12ahUKEwjpuv2Yy46IAxUjHkQIHfoSB78QM3oECBIQAA..i&w=250&h=400&hcb=2&ved=2ahUKEwjpuv2Yy46IAxUjHkQIHfoSB78QM3oECBIQAA"
+    },
+    {
+      "id": "eba3",
+      "name": "Samsung S24",
+      "price": 0,
+      "category": "Mobile",
+      "color": "black",
+      "description": "phone",
+      "image": "https://www.google.com/imgres?q=samsung%20s24&imgurl=https%3A%2F%2Ft-mobile.scene7.com%2Fis%2Fimage%2FTmusprod%2FSamsung-Galaxy-S24-Amber-Yellow-frontimage&imgrefurl=https%3A%2F%2Fwww.t-mobile.com%2Fcell-phone%2Fsamsung-galaxy-s24&docid=aqvo7_5Twyi-PM&tbnid=nL0NOQlRrd00CM&vet=12ahUKEwjpuv2Yy46IAxUjHkQIHfoSB78QM3oECBIQAA..i&w=250&h=400&hcb=2&ved=2ahUKEwjpuv2Yy46IAxUjHkQIHfoSB78QM3oECBIQAA"
+    }
   ]
 }

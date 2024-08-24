@@ -1,0 +1,46 @@
+.add-product-container {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  min-height: 25%;
+  width: 75%;
+  max-width: 750px;
+  margin: 20px auto;
+  padding: 10px;
+  background-color: lightgray;
+  border-radius: 10px;
+}
+
+.add-product-container h1 {
+  font-size: 2rem;
+}
+
+.add-product-form {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 5px;
+}
+
+.form-label {
+  margin-bottom: 3px;
+}
+.form-label p {
+  margin-bottom: 0px;
+}
+
+.alert {
+  font-size: 12px;
+  padding: 2px;
+}
+
+.btn {
+  margin-top: 10px;
+  align-self: center;
+  width: 50%;
+}

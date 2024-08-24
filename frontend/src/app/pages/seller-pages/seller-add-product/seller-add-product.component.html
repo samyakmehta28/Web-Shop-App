@@ -1,1 +1,143 @@
-<p>seller-add-product works!</p>
+{{ product | json }}
+
+<div class="add-product-container">
+  <h1>Add Product</h1>
+  <form
+    #addProductForm="ngForm"
+    class="add-product-form"
+    (ngSubmit)="addProductFn(addProductForm)"
+  >
+    <div class="form-group">
+      <div class="form-label">
+        <p>Name</p>
+      </div>
+      <input
+        required
+        class="form-control"
+        type="text"
+        name="name"
+        placeholder="Enter your Name"
+        [(ngModel)]="product.name"
+        #nameControl="ngModel"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="nameControl.errors?.['required'] && nameControl.dirty"
+      >
+        Name is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="form-label">
+        <p>Price</p>
+      </div>
+      <input
+        required
+        class="form-control"
+        type="number"
+        name="price"
+        placeholder="Enter the price"
+        [(ngModel)]="product.price"
+        #priceControl="ngModel"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="priceControl.errors?.['required'] && priceControl.dirty"
+      >
+        price is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="form-label">
+        <p>Category</p>
+      </div>
+      <input
+        required
+        class="form-control"
+        type="text"
+        name="category"
+        placeholder="Enter the category"
+        [(ngModel)]="product.category"
+        #categoryControl="ngModel"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="categoryControl.errors?.['required'] && categoryControl.dirty"
+      >
+        category is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="form-label">
+        <p>Color</p>
+      </div>
+      <input
+        required
+        class="form-control"
+        type="text"
+        name="color"
+        placeholder="Enter the color"
+        [(ngModel)]="product.color"
+        #colorControl="ngModel"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="colorControl.errors?.['required'] && colorControl.dirty"
+      >
+        color is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="form-label">
+        <p>Description</p>
+      </div>
+      <textarea
+        required
+        class="form-control"
+        type="text"
+        name="description"
+        placeholder="Enter the description"
+        [(ngModel)]="product.description"
+        #descriptionControl="ngModel"
+      ></textarea>
+      <div
+        class="alert alert-danger"
+        *ngIf="descriptionControl.errors?.['required'] && descriptionControl.dirty"
+      >
+        description is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="form-label">
+        <p>Image URL</p>
+      </div>
+      <input
+        required
+        class="form-control"
+        type="text"
+        name="image"
+        placeholder="Enter the image URL"
+        [(ngModel)]="product.image"
+        #imageControl="ngModel"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="imageControl.errors?.['required'] && imageControl.dirty"
+      >
+        image is required.
+      </div>
+    </div>
+
+    <button
+      [disabled]="!addProductForm.valid"
+      class="btn btn-success"
+      type="submit"
+    >
+      Add Product
+    </button>
+  </form>
+</div>
