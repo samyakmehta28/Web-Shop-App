@@ -1,9 +1,11 @@
-<div class="add-product-container">
-  <h1>Add Product</h1>
+{{ product | json }}
+
+<div class="update-product-container">
+  <h1>Update Product</h1>
   <form
-    #addProductForm="ngForm"
-    class="add-product-form"
-    (ngSubmit)="addProductFn(addProductForm)"
+    #updateProductForm="ngForm"
+    class="update-product-form"
+    (ngSubmit)="updateProductFn(updateProductForm)"
   >
     <div class="form-group">
       <div class="form-label">
@@ -131,11 +133,11 @@
     </div>
 
     <button
-      [disabled]="!addProductForm.valid"
+      [disabled]="!updateProductForm.valid"
       class="btn btn-success"
       type="submit"
     >
-      Add Product
+      Update Product
     </button>
   </form>
 </div>

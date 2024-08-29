@@ -26,7 +26,6 @@ export class SellerAddProductComponent {
   constructor(private sellerAddProductService: SellerAddProductService) {}
 
   addProductFn(addProductForm: NgForm) {
-    console.log(this.product);
     this.sellerAddProductService
       .addProduct(this.product)
       .pipe(

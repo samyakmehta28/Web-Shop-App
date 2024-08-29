@@ -11,20 +11,20 @@
     {
       "id": "1870",
       "name": "Samsung S24",
-      "price": 0,
+      "price": 800,
       "category": "Mobile",
       "color": "black",
-      "description": "phone",
-      "image": "https://www.google.com/imgres?q=samsung%20s24&imgurl=https%3A%2F%2Ft-mobile.scene7.com%2Fis%2Fimage%2FTmusprod%2FSamsung-Galaxy-S24-Amber-Yellow-frontimage&imgrefurl=https%3A%2F%2Fwww.t-mobile.com%2Fcell-phone%2Fsamsung-galaxy-s24&docid=aqvo7_5Twyi-PM&tbnid=nL0NOQlRrd00CM&vet=12ahUKEwjpuv2Yy46IAxUjHkQIHfoSB78QM3oECBIQAA..i&w=250&h=400&hcb=2&ved=2ahUKEwjpuv2Yy46IAxUjHkQIHfoSB78QM3oECBIQAA"
+      "description": "This is samsung product. This is samsung product. This is samsung product. This is samsung product. This is samsung product.",
+      "image": "https://image-us.samsung.com/us/smartphones/galaxy-s24/all-gallery/01_E3_TitaniumBlack_Lockup_1600x1200.jpg?$product-details-jpg$"
     },
     {
-      "id": "eba3",
-      "name": "Samsung S24",
-      "price": 0,
+      "id": "8e0b",
+      "name": "iphone 15",
+      "price": 1000,
       "category": "Mobile",
-      "color": "black",
-      "description": "phone",
-      "image": "https://www.google.com/imgres?q=samsung%20s24&imgurl=https%3A%2F%2Ft-mobile.scene7.com%2Fis%2Fimage%2FTmusprod%2FSamsung-Galaxy-S24-Amber-Yellow-frontimage&imgrefurl=https%3A%2F%2Fwww.t-mobile.com%2Fcell-phone%2Fsamsung-galaxy-s24&docid=aqvo7_5Twyi-PM&tbnid=nL0NOQlRrd00CM&vet=12ahUKEwjpuv2Yy46IAxUjHkQIHfoSB78QM3oECBIQAA..i&w=250&h=400&hcb=2&ved=2ahUKEwjpuv2Yy46IAxUjHkQIHfoSB78QM3oECBIQAA"
+      "color": "gray",
+      "description": "iphone 15 base model",
+      "image": "data:image/jpeg;base64,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"
     }
   ]
 }

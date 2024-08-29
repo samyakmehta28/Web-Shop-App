@@ -1,1 +1,42 @@
-<p>seller-home works!</p>
+<div class="seller-product-list">
+  <h1>Product List</h1>
+  <div class="product-table-container">
+    <table class="product-table">
+      <thead>
+        <tr>
+          <th class="image">Image</th>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Color</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let product of productList">
+          <td class="image"><img src="{{ product.image }}" alt="image" /></td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.category }}</td>
+          <td>{{ product.color }}</td>
+          <td>{{ product.description }}</td>
+          <td>{{ product.price }}</td>
+          <td>
+            <div class="button-group">
+              <button
+                class="btn btn-danger"
+                (click)="removeProduct(product.id)"
+              >
+                Delete
+              </button>
+              <button class="btn btn-primary" (click)="editProduct(product.id)">
+                Edit
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
