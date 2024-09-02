@@ -42,6 +42,8 @@ export class HomeComponent {
 
   topProducts: Product[] = [];
 
+  numbers = Array.from({ length: 10 }, (_, i) => i + 1);
+
   constructor(private homeService: HomeService) {}
 
   ngOnInit(): void {

@@ -18,3 +18,23 @@
     </ng-template>
   </ng-container>
 </owl-carousel-o>
+
+<div class="product-list-container">
+  <h1>Trending Products</h1>
+  <div class="product-list">
+    <div *ngFor="let number of numbers" class="product-card">
+      <img
+        src="https://image-us.samsung.com/us/smartphones/galaxy-s24/all-gallery/01_E3_TitaniumBlack_Lockup_1600x1200.jpg?$product-details-jpg$"
+      />
+      <div class="product-details-container">
+        <h6 class="product-name">Samsung S24</h6>
+        <p class="product-price">Price: $800</p>
+        <p class="product-color">Color: Black</p>
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-success">Add to Cart</button>
+        <button class="btn btn-primary">View Details</button>
+      </div>
+    </div>
+  </div>
+</div>
