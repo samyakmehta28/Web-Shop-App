@@ -9,9 +9,12 @@ import { catchError, throwError, Observable } from 'rxjs';
 export class HomeService {
   constructor(private http: HttpClient) {}
 
-  getTopProducts(): Observable<HttpResponse<any>> {
-    return this.http.get<Product[]>('http://localhost:3000/products?_limit=5', {
-      observe: 'response',
-    });
+  getTopProducts(limit: number): Observable<HttpResponse<any>> {
+    return this.http.get<Product[]>(
+      `http://localhost:3000/products?_limit=${limit}`,
+      {
+        observe: 'response',
+      }
+    );
   }
 }

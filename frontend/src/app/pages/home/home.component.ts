@@ -40,17 +40,30 @@ export class HomeComponent {
     },
   };
 
-  topProducts: Product[] = [];
+  carouselProducts: Product[] = [];
+  limitCarousel: number = 3;
+  trendingProducts: Product[] = [];
+  limitTrendingProducts: number = 10;
 
   numbers = Array.from({ length: 10 }, (_, i) => i + 1);
 
   constructor(private homeService: HomeService) {}
 
   ngOnInit(): void {
-    this.homeService.getTopProducts().subscribe({
+    this.homeService.getTopProducts(this.limitCarousel).subscribe({
       next: (response: HttpResponse<any>) => {
         if (response.status == 200) {
-          this.topProducts = response.body;
+          this.carouselProducts = response.body;
+        }
+      },
+      error: (error) => {
+        alert(error);
+      },
+    });
+    this.homeService.getTopProducts(this.limitTrendingProducts).subscribe({
+      next: (response: HttpResponse<any>) => {
+        if (response.status == 200) {
+          this.trendingProducts = response.body;
         }
       },
       error: (error) => {

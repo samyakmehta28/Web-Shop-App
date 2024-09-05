@@ -2,7 +2,7 @@
   <h1>Welcome to the E-Commerce App</h1>
 </div>
 <owl-carousel-o [options]="customOptions">
-  <ng-container *ngFor="let slide of topProducts; let i = index">
+  <ng-container *ngFor="let slide of carouselProducts; let i = index">
     <ng-template carouselSlide [id]="slide.id || i.toString()">
       <div class="carousel-slide-content">
         <img
@@ -22,16 +22,14 @@
 <div class="product-list-container">
   <h1>Trending Products</h1>
   <div class="product-list">
-    <div *ngFor="let number of numbers" class="product-card">
-      <img
-        src="https://image-us.samsung.com/us/smartphones/galaxy-s24/all-gallery/01_E3_TitaniumBlack_Lockup_1600x1200.jpg?$product-details-jpg$"
-      />
+    <div *ngFor="let product of trendingProducts" class="product-card">
+      <img [src]="product.image" [alt]="product.name" />
       <div class="product-details-container">
-        <h6 class="product-name">Samsung S24</h6>
-        <p class="product-price">Price: $800</p>
-        <p class="product-color">Color: Black</p>
+        <h6 class="product-name">{{ product.name }}</h6>
+        <p class="product-price">Price: {{ product.price }}</p>
+        <p class="product-color">Color: {{ product.color }}</p>
       </div>
-      <div class="btn-group">
+      <div class="btns-group">
         <button class="btn btn-success">Add to Cart</button>
         <button class="btn btn-primary">View Details</button>
       </div>
