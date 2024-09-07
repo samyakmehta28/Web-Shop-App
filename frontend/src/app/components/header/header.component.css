@@ -21,9 +21,11 @@
 .nav-search {
   display: flex;
   flex: 3;
+  justify-content: center;
+  position: relative;
 }
 
-.navbar input {
+.nav-search input {
   width: 80%;
 }
 
@@ -43,4 +45,29 @@
 
 .navlinks a:hover {
   cursor: pointer;
+}
+
+.filtered-product-list {
+  position: absolute;
+  z-index: 10;
+  top: 100%;
+  left: 3%;
+  color: black;
+  width: 83%;
+  max-height: 300px;
+  border-collapse: collapse;
+  overflow-y: auto;
+}
+
+.filtered-product {
+  list-style: none;
+  padding: 5px;
+  border: 1px solid black;
+  width: 100%;
+  background-color: white;
+}
+
+.filtered-product:hover {
+  cursor: pointer;
+  background-color: rgb(176, 219, 233);
 }

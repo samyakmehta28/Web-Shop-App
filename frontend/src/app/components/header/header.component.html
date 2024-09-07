@@ -2,8 +2,21 @@
   <nav *ngSwitchCase="'default'" class="navbar">
     <h1><a routerLink="">Web-Shop</a></h1>
     <div class="nav-search">
-      <input type="text" placeholder="search" />
+      <input
+        [(ngModel)]="searchQuery"
+        (input)="onSearchChange()"
+        type="text"
+        placeholder="search"
+      />
       <button type="button" class="btn btn-light">Search</button>
+      <ul
+        class="filtered-product-list"
+        *ngIf="filteredProducts.length > 0 && showSearch"
+      >
+        <li class="filtered-product" *ngFor="let product of filteredProducts">
+          {{ product.name }}
+        </li>
+      </ul>
     </div>
     <div class="navlinks">
       <a [routerLink]="['seller/login']">Seller</a>
