@@ -8,7 +8,9 @@
         type="text"
         placeholder="search"
       />
-      <button type="button" class="btn btn-light">Search</button>
+      <button type="button" (click)="toSearch()" class="btn btn-light">
+        Search
+      </button>
       <ul
         class="filtered-product-list"
         *ngIf="filteredProducts.length > 0 && showSearch"

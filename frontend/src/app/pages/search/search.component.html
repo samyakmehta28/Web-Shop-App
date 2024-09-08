@@ -1,0 +1,17 @@
+<div class="product-list-container">
+  <h1>Similiar Products</h1>
+  <div class="product-list">
+    <div *ngFor="let product of filteredProducts" class="product-card">
+      <img [src]="product.image" [alt]="product.name" />
+      <div class="product-details-container">
+        <h6 class="product-name">{{ product.name }}</h6>
+        <p class="product-price">Price: {{ product.price }}</p>
+        <p class="product-color">Color: {{ product.color }}</p>
+      </div>
+      <div class="btns-group">
+        <button class="btn btn-success">Add to Cart</button>
+        <button class="btn btn-primary">View Details</button>
+      </div>
+    </div>
+  </div>
+</div>

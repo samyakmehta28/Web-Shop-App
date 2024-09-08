@@ -58,6 +58,7 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  //or we can use the (blur) event on the search input
   @HostListener('document:click', ['$event'])
   onClick(event: MouseEvent): void {
     // Check if the click was outside the nav-search element
@@ -80,7 +81,7 @@ export class HeaderComponent implements OnInit {
           this.filteredProducts = allProducts.filter((product: Product) =>
             product.name.toLowerCase().includes(this.searchQuery.toLowerCase())
           );
-          console.log(this.filteredProducts);
+          // console.log(this.filteredProducts);
         } else {
           alert(response.body);
         }
@@ -89,5 +90,9 @@ export class HeaderComponent implements OnInit {
         alert(error.body);
       },
     });
+  }
+
+  toSearch() {
+    this.router.navigate(['/search'], { queryParams: { q: this.searchQuery } });
   }
 }
